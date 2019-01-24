@@ -5,6 +5,7 @@ Esta é uma SPA (Single Page Application), construída com:
 * ASP.NET Core e C# para o back-end no servidor
 * Angular e TypeScript para o front-end no cliente
 * Bootstrap para o layout e o estilo
+
 Para ajudar a entender:
 
 * Angular CLI integrado. Em tempo de desenvovimento, não é necessário rodar ng serve. Isto acontece automaticamente em segundo plano, então os recursos de front-end são carregados na página, que é atualizada quando algum arquivo é modificado.
