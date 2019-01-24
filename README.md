@@ -1,0 +1,3 @@
+# Angular no ASP .NET Core usando SPA Services
+
+Como integrar uma aplicação front-end Angular com uma aplicação back-end .NET Core, de forma a publicar ambos em um mesmo host? Para isso vamos utilizar SPA Services. Um recurso do .NET Core, que permite a aplicação .NET levantar a aplicação em Angular (também poderia ser uma aplicação em REACT) junto com o back-end no server, tornando natural a comunicação entre as duas. Seria como desenvolver uma api em .NET Core e o front em Angular, mas fazendo apenas um deploy com ambas.
