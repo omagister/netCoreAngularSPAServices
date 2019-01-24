@@ -1,0 +1,90 @@
+<div class="card">
+  <div class="card-header bg-primary text-light">
+      {{ title }}
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="OnSubmit()" #form="ngForm">
+        <div class="form-row">
+            <div class="form-group col-md-8">
+                <label>Nome</label>
+                <input type="text" class="form-control" [(ngModel)]="pessoa.nome" name="nome" #nome="ngModel" required minlength="3"/>
+                <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="alert alert-danger">
+                  <div *ngIf="nome.errors.required">
+                    Nome é obrigatório
+                  </div>
+                  <div *ngIf="nome.errors.minlength">
+                    Nome tem de ter no mínimo 3 caracteres
+                  </div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Sobrenome</label>
+                <input class="form-control"  [(ngModel)]="pessoa.sobrenome" name="sobrenome" #sobrenome="ngModel" required minlength="3" />
+                <div *ngIf="sobrenome.invalid && (nome.dirty || sobrenome.touched)" class="alert alert-danger">
+                  <div *ngIf="sobrenome.errors.required">
+                    Sobrenome é obrigatório
+                  </div>
+                  <div *ngIf="sobrenome.errors.minlength">
+                    Sobrenome tem de ter no mínimo 3 caracteres
+                  </div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label>E-MAIL</label>
+                <input type="email" class="form-control"  [(ngModel)]="pessoa.email" name="email" #email="ngModel"/>
+
+            </div>
+            <div class="form-group col-md-4">
+                <label>CPF</label>
+                <input type="text" class="form-control" [(ngModel)]="pessoa.cpf" name="cpf" #cpf="ngModel" minlength="11"/>
+                <div *ngIf="cpf.invalid && (cpf.dirty || cpf.touched)" class="alert alert-danger">
+                    <div *ngIf="cpf.errors.minlength">
+                      CPF tem de ter no mínimo 11 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label>Nascimento</label>
+                <input type="datetime-local" class="form-control"  [(ngModel)]="pessoa.dataDeNascimento" name="dataDeNascimento" #dataDeNascimento="ngModel" required minlenght="10"/>
+                <div *ngIf="dataDeNascimento.invalid && (dataDeNascimento.dirty || dataDeNascimento.touched)" class="alert alert-danger">
+                    <div *ngIf="dataDeNascimento.errors.required">
+                      Data de nascimento é obrigatório
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-12">
+              <label>Endereço</label>
+              <input class="form-control"  [(ngModel)]="pessoa.endereco" name="endereco" #endereco="ngModel" minlength="10" />
+
+            </div>
+            <div class="form-group col-md-5">
+                <label>Bairro</label>
+                <input class="form-control"  [(ngModel)]="pessoa.bairro" name="bairro" #bairro="ngModel" minlength="3" />
+
+            </div>
+            <div class="form-group col-md-4">
+              <label>Cidade</label>
+              <input class="form-control"  [(ngModel)]="pessoa.cidade" name="cidade" #cidade="ngModel" minlength="3" />
+
+            </div>
+            <div class="form-group col-md-1">
+              <label>Estado</label>
+              <input class="form-control"  [(ngModel)]="pessoa.estado" name="estado" #estado="ngModel" maxlength="2" />
+
+            </div>
+            <div class="form-group col-md-2">
+              <label>CEP</label>
+              <input class="form-control"  [(ngModel)]="pessoa.cep" name="cep" #cep="ngModel" maxlength="10" />
+
+            </div>
+          </div>
+
+
+          <button type="submit" class="btn btn-primary" [disabled]="!form.form.valid">Salvar</button>
+          <a routerLink="/pessoas" class="btn btn-secondary ml-2" style="color:white;">Cancelar</a>
+
+    </form>
+
+</div>

@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-header bg-primary text-light">
+    Pessoas
+  </div>
+  <div class="card-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Sobrenome</th>
+          <th scope="col">Nome</th>
+          <th scope="col">CPF</th>
+          <th scope="col">Nascimento</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pessoa of pessoas">
+          <td>{{ pessoa.sobrenome }}</td>
+          <td>{{ pessoa.nome }}</td>
+          <td>{{ pessoa.cpf }}</td>
+          <td>{{ pessoa.dataDeNascimento | date: 'dd/MM/yyyy'  }}</td>
+          <td>
+            <a class="btn btn-primary" title="Editar" routerLink="/pessoas/edit/{{ pessoa.pessoaId }}">
+              <i class="fas fa-edit"></i>
+            </a>
+          </td>
+          <td>
+            <a class="btn btn-danger" title="Excluir" routerLink="" (click)="delete(pessoa.pessoaId)">
+              <i class="fas fa-trash-alt"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a routerLink="/pessoas/create" class="btn btn-primary">Nova Pessoa</a>
+  </div>
+</div>
