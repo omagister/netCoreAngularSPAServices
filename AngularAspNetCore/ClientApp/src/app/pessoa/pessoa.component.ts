@@ -13,11 +13,16 @@ export class PessoaComponent {
 
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private _pessoaService: PessoaService, private _router: Router) {
-    console.log(baseUrl);
-    http.get<Pessoa[]>(baseUrl + 'api/Pessoa/Pessoas').subscribe(result => {
-      this.pessoas = result;
-      console.log(this.pessoas);
-    }, error => console.error(error));
+    this._pessoaService.retornaListaPessoas()
+      .subscribe(
+        data => this.pessoas = data
+      );
+
+
+    // http.get<Pessoa[]>(baseUrl + 'api/Pessoa/Pessoas').subscribe(result => {
+    //   this.pessoas = result;
+    //   console.log(this.pessoas);
+    // }, error => console.error(error));
   }
 
   delete(pessoaId) {

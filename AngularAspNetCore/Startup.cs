@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Dados.Contexto;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using System;
 
 namespace AngularAspNetCore
 {
@@ -70,6 +71,7 @@ namespace AngularAspNetCore
 
                 if (env.IsDevelopment())
                 {
+                    spa.Options.StartupTimeout = new TimeSpan(days: 0, hours: 0, minutes: 1, seconds: 30);
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
